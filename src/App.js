@@ -1,7 +1,14 @@
 import React from 'react'
 
+import Nav from './components/Nav'
 const App = () => {
-  return <div>Inova Hive</div>
+  return (
+    <div className="App">
+      <header>
+        <Nav />
+      </header>
+    </div>
+  )
 }
 
 export default App
