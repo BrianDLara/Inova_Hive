@@ -1,3 +1,7 @@
 @tailwind base; 
 @tailwind components; 
 @tailwind utilities;
+
+.max-w-logo {
+    max-width: 550px; /* or whatever maximum width you want to set */
+  }

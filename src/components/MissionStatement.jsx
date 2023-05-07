@@ -10,7 +10,7 @@ const MissionStatement = ({ mode }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1920);
+      setIsDesktop(window.innerWidth >= 1280);
     };
 
     handleResize();
@@ -27,21 +27,24 @@ const MissionStatement = ({ mode }) => {
   }, []);
 
   const missionStatement = (
-    <motion.p
-      className={`text-2xl font-bold max-w-xl mx-4 my-8 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}
-    >
-      At Inova Hive, our mission is to transform businesses through
-      cutting-edge website design and development. We believe in using
-      innovative solutions and collaborative partnerships to help our
-      clients achieve their online goals and unlock their full potential.
-      Our team of experts works tirelessly to create custom websites that
-      drive engagement, enhance user experience, and increase conversions.
-      We are dedicated to delivering exceptional service and building
-      lasting relationships with our clients, so they can focus on what they
-      do best – running their business. At Nova Hive, we are committed to
-      being a trusted partner for our clients and helping them thrive in the
-      ever-evolving world of technology.
-    </motion.p>
+    <div className="flex justify-center w-full ">
+      <motion.p
+        className={`text-2xl font-bold max-w-xl mx-4 my-8 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}
+        style={{ fontSize: isDesktop ? '1.5rem' : '1.5rem' }}
+      >
+        At Inova Hive, our mission is to transform businesses through
+        cutting-edge website design and development. We believe in using
+        innovative solutions and collaborative partnerships to help our
+        clients achieve their online goals and unlock their full potential.
+        Our team of experts works tirelessly to create custom websites that
+        drive engagement, enhance user experience, and increase conversions.
+        We are dedicated to delivering exceptional service and building
+        lasting relationships with our clients, so they can focus on what they
+        do best – running their business. At Nova Hive, we are committed to
+        being a trusted partner for our clients and helping them thrive in the
+        ever-evolving world of technology.
+      </motion.p>
+    </div>
   );
 
   return (
@@ -52,19 +55,19 @@ const MissionStatement = ({ mode }) => {
             <AnimatePresence>
               {showLogo && (
                 <motion.img
-                  src={mode === 'dark' ? logoDark : logoLight}
-                  alt="Inova Hive Logo"
-                  className="absolute w-4/12"
-                  style={{
-                    left: showMissionStatement ? 'calc(50% + 6rem)' : '50%',
-                    bottom: '25%',
-                    transform: showMissionStatement ? 'translate(-50%, -50%)' : 'translate(-50%, 0)',
-                  }}
-                  initial={{ y: '100vh', opacity: 0 }}
-                  animate={{ y: '0', opacity: 1, left: showMissionStatement ? 'calc(50% + 6rem)' : '50%' }}
-                  exit={{ y: '-50vh', opacity: 0 }}
-                  transition={{ duration: 1.5 }}
-                />
+                src={mode === 'dark' ? logoDark : logoLight}
+                alt="Inova Hive Logo"
+                className="absolute ml-20 max-w-logo"
+                style={{
+                  left: showMissionStatement ? 'calc(50% + 6rem)' : '50%',
+                  bottom: '25%',
+                  transform: showMissionStatement ? 'translate(-50%, -50%)' : 'translate(-50%, 0)',
+                }}
+                initial={{ y: '100vh', opacity: 0 }}
+                animate={{ y: '0', opacity: 1, left: showMissionStatement ? 'calc(50% + 6rem)' : '50%' }}
+                exit={{ y: '-50vh', opacity: 0 }}
+                transition={{ duration: 1.5 }}
+              />
               )}
             </AnimatePresence>
             <AnimatePresence>
@@ -76,12 +79,13 @@ const MissionStatement = ({ mode }) => {
                   exit={{ x: '-100vw', opacity: 0 }}
                   transition={{ duration: 1.5 }}
                 >
-                   <div className="container mx-auto px-4 py-4 pt-32 flex items-center">
+                  <div className={`container mx-auto px-4 py-4 pt-32 mr-80 pr-96 flex items-center overflow-x-hidden ${isDesktop ? 'justify-start' : 'justify-center'}`}>
                     {missionStatement}
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
+
           </>
         ) : (
           <motion.div
