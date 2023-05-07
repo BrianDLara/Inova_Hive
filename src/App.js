@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Nav from './components/Nav'
 import MissionStatement from './components/MissionStatement'
 const App = () => {
-  const [mode, setMode] = useState('light') // default mode is light
+  const [mode, setMode] = useState('dark') // default mode is dark
 
   const toggleMode = () => {
     setMode(mode === 'light' ? 'dark' : 'light')
